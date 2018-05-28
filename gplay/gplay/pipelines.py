@@ -8,4 +8,6 @@
 
 class GplayPipeline(object):
     def process_item(self, item, spider):
+        spider.log(item)
+        # print(item)
         return item

@@ -16,10 +16,10 @@ NEWSPIDER_MODULE = 'gplay.spiders'
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 
-USER_AGENT = 'gplay (+http://www.yourdomain.com)'
+USER_AGENT = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36'
 
 # Obey robots.txt rules
-ROBOTSTXT_OBEY = True
+ROBOTSTXT_OBEY = False
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 # CONCURRENT_REQUESTS = 32
@@ -64,9 +64,9 @@ EXTENSIONS = {
 
 # Configure item pipelines
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
-# ITEM_PIPELINES = {
-#    'gplay.pipelines.GplayPipeline': 300,
-# }
+ITEM_PIPELINES = {
+    'gplay.pipelines.GplayPipeline': 3,
+}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://doc.scrapy.org/en/latest/topics/autothrottle.html

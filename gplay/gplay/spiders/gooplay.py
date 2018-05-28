@@ -1,16 +1,16 @@
 # -*- coding: utf-8 -*-
 
 import scrapy
-from scrapy.contrib.spiders import CrawlSpider, Rule
-from scrapy.contrib.linkextractors import LinkExtractor
+from scrapy.spiders import CrawlSpider, Rule
+from scrapy.linkextractors import LinkExtractor
 from scrapy.selector import HtmlXPathSelector
 from gplay.items import GplayItem
 import urlparse
 
 
 class GooplaySpider(CrawlSpider):
-    def parse(self, response):
-        pass
+    # def parse(self, response):
+    #     pass
 
     name = 'gooplay'
     allowed_domains = ["play.google.com"]
@@ -39,6 +39,7 @@ class GooplaySpider(CrawlSpider):
             item["Item_name"] = titles.select('//*[@class="document-title"]/div/text()').extract()
             item["Updated"] = titles.select('//*[@itemprop="datePublished"]/text()').extract()
             item["Author"] = titles.select('//*[@itemprop="author"]/a/span/text()').extract()
+            item["Title"] = titles.select('//*[@itemprop="name"]/a/span/text()').extract()
             item["Filesize"] = titles.select('//*[@itemprop="fileSize"]/text()').extract()
             item["Downloads"] = titles.select('//*[@itemprop="numDownloads"]/text()').extract()
             item["Version"] = titles.select('//*[@itemprop="softwareVersion"]/text()').extract()
