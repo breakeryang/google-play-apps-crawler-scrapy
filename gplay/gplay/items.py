@@ -1,15 +1,18 @@
+# -*- coding: utf-8 -*-
+
 # Define here the models for your scraped items
 #
 # See documentation in:
-# http://doc.scrapy.org/topics/items.html
+# https://doc.scrapy.org/en/latest/topics/items.html
 
-# from scrapy.item import Item, Field
 import scrapy
 
 
-class GplaycrawlerItem(scrapy.Item):
+class GplayItem(scrapy.Item):
     # define the fields for your item here like:
     # name = Field()
+    app_id = scrapy.Field()
+    Title = scrapy.Field()
     Link = scrapy.Field()
     Item_name = scrapy.Field()
     Updated = scrapy.Field()
@@ -20,7 +23,6 @@ class GplaycrawlerItem(scrapy.Item):
     Compatibility = scrapy.Field()
     Content_rating = scrapy.Field()
     Author_link = scrapy.Field()
-    ##    Author_link_test = scrapy.Field()
     Genre = scrapy.Field()
     Price = scrapy.Field()
     Rating_value = scrapy.Field()
