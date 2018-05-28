@@ -30,6 +30,10 @@ class GooplaySpider(CrawlSpider):
         return urlparse.urljoin(base, url)
 
     def parse_link(self, response):
+
+        title = response.selector.xpath('//*[@itemprop="name"]/span/text()').extract()
+
+        self.logger.info("parse PKG %s" % title)
         # hxs = HtmlXPathSelector(response)
         # titles = hxs.select('/html')
         # items = []
